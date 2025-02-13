@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISCUTONS LIBREMENT</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+
+    <h1>DISCUTONS LIBREMENT</h1>
+
+    <form id="formPublication">
+        <textarea id="messageContent" placeholder="Mon message..... #mon psuedo anonyme(facultatif)"></textarea>
+
+        <button type="submit">Publier</button>
+    </form>
+
+    <div id="messagesContainer"></div>
+    <script src="config.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

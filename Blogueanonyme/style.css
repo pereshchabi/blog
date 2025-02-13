@@ -1,0 +1,161 @@
+/* Dégradé animé avec effet de pulsation */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
+    color: rgb(38, 44, 111);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Animation du fond */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Organisation principale */
+#container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+}
+
+/* Section gauche (titre + formulaire) */
+#leftSection {
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: slideInLeft 1s ease-out;
+}
+
+/* Animation d'entrée pour la section gauche */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Titre animé */
+h1 {
+    font-size: 22px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #f91307, #f35313, #e84b36);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    animation: glow 1s infinite alternate;
+}
+
+/* Animation de glow sur le titre */
+@keyframes glow {
+    from { text-shadow: 0 0 10px rgba(23, 5, 5, 0.5); }
+    to { text-shadow: 0 0 20px rgba(41, 28, 28, 0.9); }
+}
+
+/* Formulaire */
+#formPublication {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#messageContent {
+    width: 330px;
+    height: 20px;
+    padding: 70px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#messageContent:focus {
+    background: rgba(250, 247, 250, 0.175);
+}
+
+/* Bouton stylisé avec effet de pulsation */
+button {
+    margin-top: 10px;
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    border: none;
+    padding: 12px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px rgba(255, 81, 47, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(221, 36, 118, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(255, 81, 47, 0.5); }
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff9966, #ff5e62);
+}
+
+/* Section droite (messages affichés) */
+#rightSection {
+    flex-grow: 5;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    border-radius: 80px;
+    max-height: 600px;
+    overflow-y: auto;
+    animation: slideInRight 1s ease-out;
+}
+
+/* Animation d'entrée pour la section droite */
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Messages stylisés */
+.message-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9px;
+    padding: 70px;
+    margin-bottom: 10px;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Animation d'apparition des messages */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+    }
+
+    #leftSection {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    #rightSection {
+        width: 100%;
+    }
+}
